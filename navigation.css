@@ -40,7 +40,7 @@ nav {
 }
 
 .nav-elements {
-    margin-right: 20rem;
+    margin-right: 2rem;
 }
 
 .navbar ul li a {
@@ -52,23 +52,47 @@ nav {
 }
 
 .navbar ul li button {
-    border: solid 2px;
-    border-color: #382b22;
-    border-radius: 0.4rem;
-    background-color: #382b22;
-    padding: 0.5rem 1rem;
+    background-color: #A9A9A9;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #808080;
+    border-radius: 5px;
 }
 
-.navbar ul li button.contact{
-    border: solid 2px;
-    border-color: #000000;
-    border-radius: 0.4rem;
-    background-color: #3D7B66;
-    padding: 0.5rem 1rem;
+.navbar ul li button:active {
+    box-shadow: 0 2px #808080;
+    transform: translateY(4px);
 }
 
-.navbar ul button:active{
-    box-shadow: 0 2px #2c6b2f; /* Weniger Schatten bei Klick */
-    transform: translateY(2px); /* Button bewegt sich nach unten */
+.navbar ul li button.contact {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #3E8E41;
+    border-radius: 5px;
 }
 
+.navbar ul li button.contact:active {
+    box-shadow: 0 2px #3E8E41;
+    transform: translateY(4px);
+}
+
+footer {
+    background: #0000;
+}

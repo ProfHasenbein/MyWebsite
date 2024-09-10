@@ -13,6 +13,7 @@
 ## Features:
 
 - welcoming screen with your location => *[in progress]*
-- compendium of useful links => *[in progress]*
-- language-switcher => *[in progress]*
-- darkmode => *[in progress]*
+- compendium of useful links          => *[in progress]*
+- language-switcher                   => *[in progress]*
+- darkmode                            => *[in progress]*
+- adaptive navbar with hamburger menu => *[in progress]*

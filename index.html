@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navigation.css">
+    <script src="script.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProfHasenbein | Startpage</title>
@@ -13,25 +13,29 @@
 <body>
     <nav class="navbar">
         <ul>
-            <a href="Index.html"><img src="ProfPicture.jpeg" alt="Logo" class="logo"></a>
-            <li class="nav-elements"><button><a href="#links">links</a></button></li>
+            <a href="index.html"><button><img src="ProfPicture.jpeg" alt="Logo" class="logo"></button></a>
+            <li class="nav-elements links-button"><button><a href="#links">links</a></button></li>
             <li class="nav-elements"><button><a href="#equipment.html">equipment</a></button></li>
             <li class="nav-elements"><button><a href="#ratings.html">ratings</a></button></li>
             <li class="nav-elements"><button><a href="games.html" >games</a></button></li>
-            <li><button class="contact"><a href="#contact">contact</a></button></li>
-            <input type="checkbox" id="active">
-            <label for="active" class="open">
-                <svg xmlns="http://www.w3.org/2000/svg" height="3rem" viewBox="0 -960 960 960" width="3rem" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-            </label>
+            <li class="contact-button"><button class="contact"><a href="#contact">contact</a></button></li>
+                <input type="checkbox" id="active">
+                    <label for="active" class="open-sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="3rem" viewBox="0 -960 960 960" width="3rem" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
         </ul>
-        <div class="sidebar">
-            <label for="active" class="close">
-                <svg xmlns="http://www.w3.org/2000/svg" height="3rem" viewBox="0 -960 960 960" width="3rem" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            </label>
-        </div>
     </nav>
 
-    <div class="content">
+    <div id="sidebar" class="sidebar">
+        <ul>
+            <li class="nav-elements links-button"><button><a href="#links">links</a></button></li>
+            <li><button><a href="#equipment.html">equipment</a></button></li>
+            <li><button><a href="#ratings.html">ratings</a></button></li>
+            <li><button><a href="games.html">games</a></button></li>
+        </ul>
+    </div>
+
+    <div class="content" id="content">
         asdf<br>
         asdf<br>
         asdf<br>

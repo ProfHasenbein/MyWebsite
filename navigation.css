@@ -17,7 +17,7 @@ body {
 
 .logo {
     border-radius: 100%;
-    height: 5rem;
+    height: 3.4rem;
     width: auto; 
     margin-right: auto;
     display: block;
@@ -48,6 +48,13 @@ nav {
     display: flex;
     transition: top 0.3s ease; 
     z-index: 100;
+    display: flex;
+    
+}
+
+
+.navbar ul li.contact-button {
+    margin-left: auto;
 }
 
 .navbar ul {
@@ -55,6 +62,8 @@ nav {
     padding: 0; 
     margin: 0;
     display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .navbar ul li a {
@@ -63,6 +72,44 @@ nav {
     font-size: 1.5rem;
     display: block;
     font-weight: 800;
+}
+
+.navbar ul button {
+    border-radius: 100px;
+    background-color: #A9A9A9;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #808080;
+}
+
+.navbar .open-sidebar{
+    border-radius: 100px;
+    background-color: #A9A9A9;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px #808080;
+}
+
+.navbar .open-sidebar:active {
+    box-shadow: 0 2px #808080;
+    transform: translateY(4px);
+}
+
+.navbar .open-sidebar:hover {
+    background-color: #C0C0C0; 
+}
+
+.nav-elements {
+    align-self: center;
+    margin-right: auto;
+}
+
+.links-button{
+    margin-left: 30px;
 }
 
 .navbar ul li button {
@@ -79,6 +126,15 @@ nav {
     transition: all 0.2s ease;
     box-shadow: 0 5px #808080;
     border-radius: 5px;
+}
+
+.navbar ul button:active {
+    box-shadow: 0 2px #808080;
+    transform: translateY(4px);
+}
+
+.navbar ul button:hover {
+    background-color: #C0C0C0; 
 }
 
 .navbar ul li button:active {
@@ -130,28 +186,97 @@ footer {
 }
 
 /*sidebar*/
-#active {
-    display: none;
-}
+@media (max-width: 837px){
 
-.open, .close {
-    display: none;
-}
-
-@media(max-width: 700px) {
-    .navbar ul {
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 10;
-
-        width: 300px;
-        background-color: #1e1f26;
+    .nav-elements{
+        display: none;
     }
 
-    nav ul li {
-        justify-content: flex-end;
+    .navbar ul{
+        width: 100%;
     }
+
+    .navbar ul li.contact-button {
+        align-self: center;
+        margin-right: auto;
+    }
+
+
+    .sidebar {
+    width: auto;
+    height: auto; 
+    background-color: #1e1f26;
+    color: white;
+    display: none;
+    position: fixed;
+    right: 0.6rem;
+    top: 0;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 100;
+    border-radius: 10px;
+    justify-content: center;
+    top: 7rem; 
+    transition:  opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    }
+
+    .sidebar ul li {
+    margin-bottom: 1rem;
+    }
+
+    .sidebar ul li button{
+    background-color: #A9A9A9;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px #808080;
+    border-radius: 5px;
+    align-items: center;
+    width: 100%;
+    }
+
+    .sidebar ul li button:hover {
+        background-color: #C0C0C0; 
+    }
+
+    .sidebar ul li button:active {
+        box-shadow: 0 2px #808080;
+        transform: translateY(4px);
+    }
+
+    .sidebar ul li button a {
+    text-decoration: none;
+    color: white;
+    }
+
+    .sidebar.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (min-width:837px) {
+    .open-sidebar {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+#active{
+    display: none;
 }

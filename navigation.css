@@ -1,5 +1,19 @@
 :root {
-    --color1: #C0C0C0;
+    --text: #C0C0C0;
+    --text2: #ffffffcc;
+    --button: #A9A9A9;
+    --button-shadow:#808080;
+    --background: #131417;
+    --window: #1e1f26;
+}
+
+[data-theme="light"] {
+    --text: #1e1f26; 
+    --text2: #131417; 
+    --button: #A9A9A9;
+    --button-shadow:#808080;
+    --window: #2c3e50; 
+    --background: #ecf0f1; 
 }
 
 body::-webkit-scrollbar {
@@ -27,7 +41,7 @@ body {
 body, html {
     margin: 0;
     padding: 0;
-    background-color: #131417;
+    background-color: var(--background);
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
@@ -42,7 +56,7 @@ nav {
     position: fixed; 
     top: 0;
     width: calc(100% - 2rem);
-    background: #1e1f26;
+    background: var(--window);
     border-radius: 10px;
     padding: 0.5rem;
     display: flex;
@@ -68,7 +82,7 @@ nav {
 
 .navbar ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--text2);
     font-size: 1.5rem;
     display: block;
     font-weight: 800;
@@ -76,31 +90,31 @@ nav {
 
 .navbar ul button {
     border-radius: 100px;
-    background-color: #A9A9A9;
+    background-color: var(--button);
     border: none;
     padding: 6px 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 5px #808080;
+    box-shadow: 0 5px var(--button-shadow);
 }
 
 .navbar .open-sidebar{
     border-radius: 100px;
-    background-color: #A9A9A9;
+    background-color: var(--button);
     border: none;
     padding: 6px 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 5px #808080;
+    box-shadow: 0 5px var(--button-shadow);
 }
 
 .navbar .open-sidebar:active {
-    box-shadow: 0 2px #808080;
+    box-shadow: 0 2px var(--button-shadow);
     transform: translateY(4px);
 }
 
 .navbar .open-sidebar:hover {
-    background-color: #C0C0C0; 
+    background-color: var(--text); 
 }
 
 .nav-elements {
@@ -113,9 +127,9 @@ nav {
 }
 
 .navbar ul li button {
-    background-color: #A9A9A9;
+    background-color: var(--button);
     border: none;
-    color: white;
+    color: var(--text2);
     padding: 15px 30px;
     text-align: center;
     text-decoration: none;
@@ -124,21 +138,21 @@ nav {
     margin: 10px 2px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 5px #808080;
+    box-shadow: 0 5px var(--button-shadow);
     border-radius: 5px;
 }
 
 .navbar ul button:active {
-    box-shadow: 0 2px #808080;
+    box-shadow: 0 2px var(--button-shadow);
     transform: translateY(4px);
 }
 
 .navbar ul button:hover {
-    background-color: #C0C0C0; 
+    background-color: var(--text); 
 }
 
 .navbar ul li button:active {
-    box-shadow: 0 2px #808080;
+    box-shadow: 0 2px var(--button-shadow);
     transform: translateY(4px);
 }
 
@@ -178,7 +192,7 @@ footer {
 }
 
 .navbar ul li button:hover {
-    background-color: #C0C0C0; 
+    background-color: var(--text); 
 }
 
 .navbar ul li button.contact:hover {
@@ -265,6 +279,10 @@ footer {
         opacity: 0;
         visibility: hidden;
     }
+
+    #nav-switch {
+        display: none;
+    }
 }
 
 @media (min-width:837px) {
@@ -279,4 +297,77 @@ footer {
 
 #active{
     display: none;
+}
+
+
+/* Hide the checkbox input */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Base style for the switcher */
+.switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px; /* Increased width */
+    height: 40px; /* Increased height */
+    background-color: #A9A9A9;
+    border-radius: 20px; /* Adjusted for bigger button */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px #808080; /* Adjusted shadow for larger button */
+}
+
+/* Icon styling */
+.switcher svg {
+    position: relative;
+    width: 25px; /* Increased icon size */
+    height: 25px; /* Increased icon size */
+    transition: opacity 0.3s ease;
+}
+
+.switcher .moon {
+    opacity: 1;
+    padding-right: 0.8rem;
+}
+
+.switcher .sun {
+    opacity: 0;
+    fill: #fdd835;
+}
+
+input[type="checkbox"]:checked + label .moon {
+    opacity: 0;
+    padding-right: 0.6rem;
+}
+
+input[type="checkbox"]:checked + label .sun {
+    opacity: 1;
+}
+
+/* Style for the switcher when checked */
+input[type="checkbox"]:checked + .switcher {
+    background-color: #fdd835; /* Change color when active */
+    box-shadow: 0 5px orange; /* Adjust shadow to make it look pressed */
+}
+
+/* Slider styling */
+.switcher::before {
+    content: '';
+    display: block;
+    width: 35px; /* Increased slider size */
+    height: 35px; /* Increased slider size */
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px; /* Adjusted for bigger button */
+    left: 2px; /* Adjusted for bigger button */
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+}
+
+input[type="checkbox"]:checked + .switcher::before {
+    transform: translateX(35px); /* Adjusted for bigger button */
 }

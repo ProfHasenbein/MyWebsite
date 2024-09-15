@@ -63,3 +63,27 @@ function toggleSidebar() {
 window.addEventListener('scroll', handleScroll);
 sidebarButton.addEventListener('click', toggleSidebar);
 
+//lightmode||darkmode
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+        body.setAttribute('data-theme', 'light');
+        toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+});
+
+
+

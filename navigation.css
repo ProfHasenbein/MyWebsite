@@ -3,8 +3,10 @@
     --text2: #ffffffcc;
     --button: #A9A9A9;
     --button-shadow:#808080;
-    --background: #131417;
+    --background: linear-gradient(135deg, rgba(19, 20, 23, 0.8), rgba(19, 20, 23, 0.8) 25%, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.2) 50%, rgba(19, 20, 23, 0.8) 50%, rgba(19, 20, 23, 0.8) 75%, rgba(0, 0, 0, 0.2) 75%) 0 0,
+                    radial-gradient(circle at 50px 50px, rgba(19, 20, 23, 0.5), rgba(19, 20, 23, 0.3) 70%) 0 0;
     --window: #1e1f26;
+    --glass-window: rgba(128, 128, 128, 0.3);
 }
 
 [data-theme="light"] {
@@ -12,17 +14,15 @@
     --text2: #131417; 
     --button: #A9A9A9;
     --button-shadow:#808080;
-    --window: #2c3e50; 
-    --background: #ecf0f1; 
+    --window: rgba(255, 255, 255, 0.5); 
+    --background: linear-gradient(135deg, rgba(236, 240, 241, 0.8), rgba(236, 240, 241, 0.8) 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(236, 240, 241, 0.8) 50%, rgba(236, 240, 241, 0.8) 75%, rgba(255, 255, 255, 0.1) 75%) 0 0,
+    radial-gradient(circle at 50px 50px, rgba(236, 240, 241, 0.3), rgba(236, 240, 241, 0.2) 70%) 0 0;
+    --glass-window: rgba(192, 192, 192, 0.3); /* Helleres Grau */
+
 }
 
 body::-webkit-scrollbar {
     display: none; 
-}
-
-body {
-    overflow: auto;
-    color: #C0C0C0;
 }
 
 * {
@@ -41,10 +41,11 @@ body {
 body, html {
     margin: 0;
     padding: 0;
-    background-color: var(--background);
+    background: var(--background);
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
+    color: #C0C0C0;
 }
 
 nav {
@@ -63,7 +64,8 @@ nav {
     transition: top 0.3s ease; 
     z-index: 100;
     display: flex;
-    
+    backdrop-filter: blur(10px);
+    border: white;
 }
 
 
@@ -114,7 +116,7 @@ nav {
 }
 
 .navbar .open-sidebar:hover {
-    background-color: var(--text); 
+    background-color: #C0C0C0; 
 }
 
 .nav-elements {
@@ -148,7 +150,7 @@ nav {
 }
 
 .navbar ul button:hover {
-    background-color: var(--text); 
+    background-color: #C0C0C0; 
 }
 
 .navbar ul li button:active {
@@ -192,7 +194,7 @@ footer {
 }
 
 .navbar ul li button:hover {
-    background-color: var(--text); 
+    background-color: #C0C0C0; 
 }
 
 .navbar ul li button.contact:hover {
@@ -229,7 +231,7 @@ footer {
     padding: 1rem;
     z-index: 100;
     border-radius: 10px;
-    justify-content: center;
+    justify-content: space-between;
     top: 7rem; 
     transition:  opacity 0.3s ease, visibility 0.3s ease;
     }
@@ -282,7 +284,7 @@ footer {
 
     #nav-switch {
         display: none;
-    }
+    }   
 }
 
 @media (min-width:837px) {
@@ -300,31 +302,29 @@ footer {
 }
 
 
-/* Hide the checkbox input */
+/* theme-switcher */
 input[type="checkbox"] {
     display: none;
 }
 
-/* Base style for the switcher */
 .switcher {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px; /* Increased width */
-    height: 40px; /* Increased height */
+    width: 75px; 
+    height: 40px; 
     background-color: #A9A9A9;
-    border-radius: 20px; /* Adjusted for bigger button */
+    border-radius: 20px;
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 5px #808080; /* Adjusted shadow for larger button */
+    box-shadow: 0 5px #808080; 
 }
 
-/* Icon styling */
 .switcher svg {
     position: relative;
-    width: 25px; /* Increased icon size */
-    height: 25px; /* Increased icon size */
+    width: 25px; 
+    height: 25px;
     transition: opacity 0.3s ease;
 }
 
@@ -347,27 +347,191 @@ input[type="checkbox"]:checked + label .sun {
     opacity: 1;
 }
 
-/* Style for the switcher when checked */
 input[type="checkbox"]:checked + .switcher {
-    background-color: #fdd835; /* Change color when active */
-    box-shadow: 0 5px orange; /* Adjust shadow to make it look pressed */
+    background-color: #fdd835; 
+    box-shadow: 0 5px orange;
 }
 
-/* Slider styling */
 .switcher::before {
     content: '';
     display: block;
-    width: 35px; /* Increased slider size */
-    height: 35px; /* Increased slider size */
+    width: 35px; 
+    height: 35px; 
     background-color: #ffffff;
     border-radius: 50%;
     position: absolute;
-    top: 2px; /* Adjusted for bigger button */
-    left: 2px; /* Adjusted for bigger button */
+    top: 2px; 
+    left: 2px; 
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
 
 input[type="checkbox"]:checked + .switcher::before {
-    transform: translateX(35px); /* Adjusted for bigger button */
+    transform: translateX(35px);
 }
+
+/* content cards */
+
+.card {
+    padding: 0;
+    margin: 3rem;
+    background-color: var(--glass-window); 
+    border-radius: 10px;
+    height: 30rem;
+    width: calc(100% - 6rem); 
+    overflow: hidden; 
+    backdrop-filter: blur(3px);
+    border: 2px solid;
+    border-color: rgba(255, 255, 255, 0.3);
+    height: 80vh;
+}
+
+.card-title {
+    display: flex;
+    margin-top: 2rem;
+    background-color: #1e1f26;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #fff; 
+}
+
+.card-text {
+    margin: 2rem;
+    font-size: 1.5rem;
+}
+
+@keyframes expand {
+    from {
+      width: 3rem;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .card-title {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .card-title h2 {
+    margin: 0; /* Remove default margin from heading */
+  }
+  
+  button.learn-more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    width: 13rem;
+    height: auto;
+    overflow: hidden; /* Ensures content does not overflow the button */
+  }
+  
+  button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936; /* Background color of the circle */
+    border-radius: 1.625rem;
+  }
+  
+  button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    background: #fff; /* Background color of the icon */
+  }
+  
+  button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+  
+  button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: '';
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff; /* Arrow color */
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+  
+  button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 50%;
+    left:57%;
+    transform: translate(-50%, -50%); /* Center text vertically and horizontally */
+    padding: 0.75rem 0;
+    color: #282936; /* Text color */
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  button.learn-more:hover .circle {
+    width: 100%;
+  }
+  
+  button.learn-more:hover .circle .icon.arrow {
+    background: #fff; /* Arrow color on hover */
+    transform: translateX(1rem);
+  }
+  
+  button.learn-more:hover .button-text {
+    color: #fff; /* Text color on hover */
+  }
+  
+  @supports (display: grid) {
+    #container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.625rem;
+      grid-template-areas: ". main main ." ". main main .";
+      align-self: center;
+      justify-self: center;
+    }
+  }
+  
+/*settings-button*/
+  .gear-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+  }
+  
+  .gear-button svg {
+    fill: #C0C0C0;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), fill 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: .2rem;
+  }
+  
+  .gear-button:hover svg {
+    fill: #000;
+    transform: rotate(360deg);
+  }

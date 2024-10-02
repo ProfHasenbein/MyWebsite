@@ -17,7 +17,7 @@
     --window: rgba(255, 255, 255, 0.5); 
     --background: linear-gradient(135deg, rgba(236, 240, 241, 0.8), rgba(236, 240, 241, 0.8) 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(236, 240, 241, 0.8) 50%, rgba(236, 240, 241, 0.8) 75%, rgba(255, 255, 255, 0.1) 75%) 0 0,
     radial-gradient(circle at 50px 50px, rgba(236, 240, 241, 0.3), rgba(236, 240, 241, 0.2) 70%) 0 0;
-    --glass-window: rgba(192, 192, 192, 0.3); /* Helleres Grau */
+    --glass-window: rgba(192, 192, 192, 0.3);
 
 }
 
@@ -53,8 +53,7 @@ nav {
 }
 
 .navbar {
-    margin-left: 0.5rem; 
-    position: fixed; 
+    margin-left: 0.5rem;  
     top: 0;
     width: calc(100% - 2rem);
     background: var(--window);
@@ -190,7 +189,7 @@ footer {
 
 .content {
     flex: 1; 
-    padding-top: 7rem;
+    padding-top: 0;
 }
 
 .navbar ul li button:hover {
@@ -277,14 +276,23 @@ footer {
     color: white;
     }
 
-    .sidebar.hidden {
-        opacity: 0;
-        visibility: hidden;
+    .hidden {
+        display: none; /* Verstecken, wenn die Klasse "hidden" vorhanden ist */
     }
+
 
     #nav-switch {
         display: none;
     }   
+
+    .card {
+        margin: 2% !important;
+        width: 96% !important;
+    }
+
+    .gear-button{
+        display: none !important;
+    }
 }
 
 @media (min-width:837px) {
@@ -369,6 +377,49 @@ input[type="checkbox"]:checked + .switcher {
 input[type="checkbox"]:checked + .switcher::before {
     transform: translateX(35px);
 }
+
+/* theme-switcher2 */
+.switcher2 {
+    background-color: var(--button);
+    border: none;
+    color: var(--text2);
+    padding: 30px;
+    display: flex;
+    margin: 5px 40%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px var(--button-shadow);
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.switcher2 svg {
+    position: absolute;
+    transition: opacity 0.3s ease; /* Für die sanfte Übergang beim Wechseln */
+}
+
+.moon {
+    opacity: 1; /* Mond sichtbar */
+}
+
+.sun {
+    opacity: 0; /* Sonne nicht sichtbar */
+}
+
+#toggle:checked + .switcher2 .moon {
+    opacity: 0; /* Mond unsichtbar */
+}
+
+#toggle:checked + .switcher2 .sun {
+    opacity: 1; /* Sonne sichtbar */
+}
+
+#toggle:checked + .switcher2 {
+    transform: translateY(2px); /* 3D-Effekt beim Drücken */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Schatten anpassen */
+}
+
 
 /* content cards */
 

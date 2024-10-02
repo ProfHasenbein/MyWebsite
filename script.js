@@ -1,17 +1,3 @@
-//navbar scroll animation
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop) {
-        navbar.style.top = "-110px"; 
-    } else {
-        navbar.style.top = "0"; 
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
 
 //toggle sidebar
 document.getElementById("active").addEventListener("click", function () {
@@ -35,19 +21,7 @@ document.addEventListener("click", function (event) {
 let lastScroll = 0;
 const sidebar = document.getElementById('sidebar');
 const sidebarButton = document.querySelector('.open-sidebar');
-let sidebarHidden = false; // Zustand, ob die Sidebar bereits versteckt ist
-
-//hide with scrolldown
-function handleScroll() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScroll && !sidebarHidden) {
-        sidebar.classList.add('hidden');
-        sidebarHidden = true;
-    }
-    
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-}
+let sidebarHidden = false; 
 
 //toggle with button
 function toggleSidebar() {
@@ -64,26 +38,4 @@ window.addEventListener('scroll', handleScroll);
 sidebarButton.addEventListener('click', toggleSidebar);
 
 //lightmode||darkmode
-
-document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('theme') === 'light') {
-        body.setAttribute('data-theme', 'light');
-        toggle.checked = true;
-    }
-
-    toggle.addEventListener('change', () => {
-        if (toggle.checked) {
-            body.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-});
-
-
 

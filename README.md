@@ -10,7 +10,7 @@
 
 ## This project is currently in progress and is not yet in it's final version. Please check back later for updates!
 
-***17.09.24***: MyWebsite is back online! Go and give it a visit: [thilowejmelka.pages.dev](https://thilowejmelka.pages.dev)
+***17.09.24***: MyWebsite is back online! Go and give it a visit: [thilowejmelka.pages.dev](https://thilo-von-benthen.pages.dev)
 
 
 
@@ -26,9 +26,10 @@
   
   └─ language switcher                => *[in progress]*
   
-  └─ darkmode && lightmode            => *[implemented]*
+  └─ darkmode && lightmode            => *[in progress]*
   
 - adaptive navbar with hamburger menu => *[implemented]*
+  
 - pages                               => *[in progress]*
   
   └─ social links                     => *[in progress]*

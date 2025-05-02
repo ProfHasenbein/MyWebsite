@@ -11,6 +11,7 @@
 ## This project is currently in progress and is not yet in it's final version. Please check back later for updates!
 
 ***17.09.24***: MyWebsite is back online! Go and give it a visit: [thilowejmelka.pages.dev](https://thilo-von-benthen.pages.dev)
+
 ***02.05.25***: Changed URL: [thilo-von-benthen.pages.dev](https://thilo-von-benthen.pages.dev)
 
 
